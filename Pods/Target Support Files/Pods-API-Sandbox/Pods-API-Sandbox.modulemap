@@ -1,0 +1,6 @@
+framework module Pods_API_Sandbox {
+  umbrella header "Pods-API-Sandbox-umbrella.h"
+
+  export *
+  module * { export * }
+}

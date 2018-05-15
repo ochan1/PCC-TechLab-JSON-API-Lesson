@@ -1,0 +1,47 @@
+{
+  "results":[
+    {
+      "gender":"female",
+      "name":{
+        "title":"mrs",
+        "first":"rose",
+        "last":"moore"
+      },
+      "location":{
+        "street":"3992 north street",
+        "city":"masterton",
+        "state":"wellington",
+        "postcode":67068
+      },
+      "email":"rose.moore@example.com",
+      "login":{
+        "username":"goldenmouse616",
+        "password":"shaker",
+        "salt":"mTw9b4M6",
+        "md5":"a6bac151418455b103a126cfe0529416",
+        "sha1":"49ec83c662c0b0327d1eadec2bf006b93310d601",
+        "sha256":"a53a4df8d7798149e6b75f652d246d0569d5d40c5bf41cff17befd540cee0cc4"
+      },
+      "registered":1109275261,
+      "dob":401570145,
+      "phone":"(091)-223-5617",
+      "cell":"(302)-922-2080",
+      "id":{
+        "name":"",
+        "value":null
+        },
+      "picture":{
+        "large":"https://randomuser.me/api/portraits/women/84.jpg",
+        "medium":"https://randomuser.me/api/portraits/med/women/84.jpg",
+        "thumbnail":"https://randomuser.me/api/portraits/thumb/women/84.jpg"
+      },
+      "nat":"NZ"
+    }
+  ],
+  "info":{
+    "seed":"536aa150a38f4a9b",
+    "results":1,
+    "page":1,
+    "version":"1.0"
+  }
+}
