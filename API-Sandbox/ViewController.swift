@@ -30,7 +30,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        startExcercises()
+        startExcercises(excercise: [1, ])//2, ])//3])
+        //Delete "])//" to open and run excercises
         
         let apiToContact = "https://itunes.apple.com/us/rss/topmovies/limit=25/json"
         // This code will call the iTunes top 25 movies endpoint listed above
@@ -87,23 +88,31 @@ class ViewController: UIViewController {
         }
     }
     
-    func startExcercises() {
-        print("Excercise 1")
-        print("-----------------------")
+    func startExcercises(excercise: [Int]) {
+        if excercise.contains(1){
+            print("Excercise 1")
+            print("-----------------------")
+            
+            exerciseOne()
+            
+            print("")
+        }
         
-        exerciseOne()
+        if excercise.contains(2) {
+            print("Excercise 2")
+            print("-----------------------")
+            
+            exerciseTwo()
+            
+            print("")
+        }
         
-        print("")
-        print("Excercise 2")
-        print("-----------------------")
-        
-        exerciseTwo()
-        
-        print("")
-        print("Excercise 3")
-        print("-----------------------")
-        
-        exerciseThree()
+        if excercise.contains(3) {
+            print("Excercise 3")
+            print("-----------------------")
+            
+            exerciseThree()
+        }
         
         print("-----------------------")
         print("End Exercises")

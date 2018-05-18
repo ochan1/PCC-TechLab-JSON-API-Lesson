@@ -36,17 +36,25 @@ internal func exerciseOne() {
     // then the value stored in "first". We  then told it that we wanted the value as a string.
     
     /*
-     
+     TASK
+     ----------
      Now it's your turn to get the rest of the values needed to print the following:
      
      "<first name> <last name> lives at <street name> in <city>, <state>, <post code>.
      If you want to contact <title>. <last name>, you can email <email address> or
      call at <cell phone number>."
-     
-     !!!!Answer Below!!!!
+     */
+    
+    
+    
+    
+    /*
+     !!!!Hint Below!!!!
      
      - Prepare the JSON path
-     - Print Statement
+     - Print Statement in the format as asked in prompt
+     
+     !!!!Answer Below!!!!
      
      */
     
@@ -56,15 +64,13 @@ internal func exerciseOne() {
     let state = userData["results"][0]["location"]["state"].stringValue
     let postcode = userData["results"][0]["location"]["postcode"].intValue
     
-    //"[0]" is there because there is an array inside the respective JSON path
-    
     let title = userData["results"][0]["name"]["title"].stringValue
     let email = userData["results"][0]["email"].stringValue
     let cell = userData["results"][0]["cell"].stringValue
     
-    // -.- Big pain in the butt
+    //"[0]" is there because there is an array inside the respective JSON path
     
-    
+    // -.- Big pain in the butt. Well talk about how to make this easier in "excerciseTwo()".
     
     print("\(firstName) \(lastName) lives at \(streetName) in \(city), \(state), \(postcode). If you want to contact \(title). \(lastName), you can email \(email) or call at \(cell).")
     
@@ -88,8 +94,8 @@ internal func exerciseTwo() {
     // We save the value for ["feed"]["entry"][0] to topMovieData to pull out just the first movie's data
     let topMovieData = moviesData["feed"]["entry"][0]
     let topMovie = Movie(json: topMovieData)
-    
-    // Uncomment this print statement when you are ready to check your code!
+    //The "Movie" class will automatically store data from JSON (see Movie.swift)
+    //"topMovie" variable of type "Movie" with all the "sub-variables" in "topMovie" variable
     
     print("The top movie is \(topMovie.name) by \(topMovie.rightsOwner). It costs $\(topMovie.price) and was released on \(topMovie.releaseDate). You can view it on iTunes here: \(topMovie.link)")
 }
@@ -117,16 +123,15 @@ internal func exerciseThree() {
      
      */
     
-    /*
-    var allMovies: [Movie] = []
+     var allMovies: [Movie] = []
+     
+     for movieData in allMoviesData {
+     let movie = Movie(json: movieData)
+     allMovies.append(movie)
+     }
     
-    for movieData in allMoviesData {
-        let movie = Movie(json: movieData)
-        allMovies.append(movie)
-    }
-    */
-    
-    let allMovies = allMoviesData.map { Movie(json: $0) }
+    //Alternate
+    //let allMovies = allMoviesData.map { Movie(json: $0) }
     
     /*
      
@@ -139,16 +144,14 @@ internal func exerciseThree() {
     print("The following movies are Disney movies:")
     
     //When written as a "for" statement
-    /*
-    for movie in allMovies {
-        if movie.rightsOwner.contains("Disney") {
-            print(movie.name)
-        }
-    }
-    */
+     for movie in allMovies {
+     if movie.rightsOwner.contains("Disney") {
+     print(movie.name)
+     }
+     }
     
     //Alternate
-    let _ = allMovies.filter { $0.rightsOwner.contains("Disney") }.map { print($0.name) }
+    //let _ = allMovies.filter { $0.rightsOwner.contains("Disney") }.map { print($0.name) }
     
     /*
      
@@ -157,15 +160,14 @@ internal func exerciseThree() {
      
      */
     print("The following movies cost less than $15:")
-    /*
-    for movie in allMovies {
-        if movie.price < 15 {
-            print("\(movie.name): $\(movie.price)")
-        }
-    }
-    */
+     for movie in allMovies {
+     if movie.price < 15 {
+     print("\(movie.name): $\(movie.price)")
+     }
+     }
     
-    let _ = allMovies.filter { $0.price < 15 }.map { print("\($0.name): $\($0.price)") }
+    //Alternate
+    //let _ = allMovies.filter { $0.price < 15 }.map { print("\($0.name): $\($0.price)") }
     
     /*
      
@@ -174,14 +176,13 @@ internal func exerciseThree() {
      
      */
     print("The following movies were released in 2016:")
-    /*
-    for movie in allMovies {
-        if movie.releaseDate.contains("2016") {
-            print("\(movie.name) was released on \(movie.releaseDate).")
-        }
-    }
-    */
+     for movie in allMovies {
+     if movie.releaseDate.contains("2016") {
+     print("\(movie.name) was released on \(movie.releaseDate).")
+     }
+     }
     
-    let _ = allMovies.filter { $0.releaseDate.contains("2016") }.map { print("\($0.name) was released on \($0.releaseDate).") }
+    //Alternate
+    //let _ = allMovies.filter { $0.releaseDate.contains("2016") }.map { print("\($0.name) was released on \($0.releaseDate).") }
     
 }
