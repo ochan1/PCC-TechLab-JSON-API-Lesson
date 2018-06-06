@@ -30,7 +30,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        startExcercises(excercise: [1, ])//2, ])//3])
+//        startExcercises(excercise: [1, 2, 3])
         //Delete "])//" to open and run excercises
         
         let apiToContact = "https://itunes.apple.com/us/rss/topmovies/limit=25/json"

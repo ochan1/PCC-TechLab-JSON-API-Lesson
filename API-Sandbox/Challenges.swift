@@ -123,12 +123,13 @@ internal func exerciseThree() {
      
      */
     
-     var allMovies: [Movie] = []
-     
-     for movieData in allMoviesData {
-     let movie = Movie(json: movieData)
-     allMovies.append(movie)
-     }
+    var allMovies: [Movie] = []
+    
+    
+    for movieData in allMoviesData {
+        let movie = Movie(json: movieData)
+        allMovies.append(movie)
+    }
     
     //Alternate
     //let allMovies = allMoviesData.map { Movie(json: $0) }
@@ -144,11 +145,11 @@ internal func exerciseThree() {
     print("The following movies are Disney movies:")
     
     //When written as a "for" statement
-     for movie in allMovies {
-     if movie.rightsOwner.contains("Disney") {
-     print(movie.name)
-     }
-     }
+    for movie in allMovies {
+        if movie.rightsOwner.contains("Disney") {
+            print(movie.name)
+        }
+    }
     
     //Alternate
     //let _ = allMovies.filter { $0.rightsOwner.contains("Disney") }.map { print($0.name) }
@@ -160,11 +161,11 @@ internal func exerciseThree() {
      
      */
     print("The following movies cost less than $15:")
-     for movie in allMovies {
-     if movie.price < 15 {
-     print("\(movie.name): $\(movie.price)")
-     }
-     }
+    for movie in allMovies {
+        if movie.price < 15 {
+            print("\(movie.name): $\(movie.price)")
+        }
+    }
     
     //Alternate
     //let _ = allMovies.filter { $0.price < 15 }.map { print("\($0.name): $\($0.price)") }
@@ -176,11 +177,11 @@ internal func exerciseThree() {
      
      */
     print("The following movies were released in 2016:")
-     for movie in allMovies {
-     if movie.releaseDate.contains("2016") {
-     print("\(movie.name) was released on \(movie.releaseDate).")
-     }
-     }
+    for movie in allMovies {
+        if movie.releaseDate.contains("2016") {
+            print("\(movie.name) was released on \(movie.releaseDate).")
+        }
+    }
     
     //Alternate
     //let _ = allMovies.filter { $0.releaseDate.contains("2016") }.map { print("\($0.name) was released on \($0.releaseDate).") }
